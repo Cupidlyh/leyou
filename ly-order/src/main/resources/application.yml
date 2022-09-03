@@ -1,0 +1,37 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou_store?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+mybatis:
+  type-aliases-package: com.leyou.order.pojo
+ly:
+  jwt:
+    pubKeyPath: E:/Code/javaproject/leyou_store/leyou/ly-auth/ly-auth-service/src/main/resources/rsa/id_rsa.pub # 公钥地址
+    cookieName: LY_TOKEN # cookie的名称
+  worker:
+    workerId: 1
+    datacenterId: 1
+  pay:
+    appID: wx8397f8696b538317
+    mchID: 1473426802
+    key: T6m9iK73bOkn9g5v426MKfHQH7X8rKwb
+    httpConnectTimeoutMs: 1000
+    httpReadTimeoutMs: 8000
+    #notifyUrl: http://www.leyou.com/
+    notifyUrl: http://a5trqu.natappfree.cc/notify/pay
